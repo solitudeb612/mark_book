@@ -1,0 +1,47 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- 插件id，不可重复，必须唯一。插件的升级后续也是依赖插件id来进行识别的 -->
+    <id>com.yyh.mark_book</id>
+
+
+    <!--  插件名称 -->
+    <name>黎吧啦的markdown</name>
+
+    <!-- 插件开发人员，这里写一下开发者的个人信息. -->
+    <vendor email="2583194138@qq.com" url="https://www.yyh.com">yyh</vendor>
+
+    <!--  插件描述，这里一般是写插件的功能介绍啥的 -->
+    <description><![CDATA[
+    This is a versatile plugin designed to assist programmers in adding annotations to their code while also facilitating the generation of comprehensive documentation. Its features include note-taking capabilities, code comprehension support, and automated document creation, enhancing code readability and collaboration within development teams.
+    <em>it's called yyh_mark_book_plugin</em>
+  ]]></description>
+
+    <change-notes><![CDATA[
+      This is a versatile plugin designed to assist programmers in adding annotations to their code while also facilitating the generation of comprehensive documentation. Its features include note-taking capabilities, code comprehension support, and automated document creation, enhancing code readability and collaboration within development teams.<br>
+      <em>仅支持生成Markdown形式笔记。</em>
+    ]]>
+    </change-notes>
+
+
+    <!--  插件依赖，这里我们默认引用idea自带的依赖即可  -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- 定义拓展点，比较少用到，一般是用于你去拓展其他人插件功能拓展点，或者是你的插件扩展了 IntelliJ 平台核心功能才会配置到这里 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="MarkBookWindown"
+                    secondary="true"
+                    anchor="right" factoryClass="com.yyh.mark_book.window.NoteListWindowFactory" icon="/img/markdown.svg">
+
+        </toolWindow>
+    </extensions>
+
+
+
+    <actions>
+
+        <action id=" PopupAction" class="com.yyh.mark_book.action.PopupAction" text="添加markdown笔记"
+                description="添加markdown笔记">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
